@@ -1,0 +1,15 @@
+import React from 'react';
+import classes from './Backdrop.module.css';
+
+const DisplayErrorMsg = ({ text, onClose, redirectMsg }) => {
+  return (
+    <div className={classes.backdrop} onClick={onClose}>
+      <div className={classes.content} style={{ cursor: 'pointer' }}>
+        <p>{text}</p>
+        <h3>{redirectMsg || 'Click To Try again!'}</h3>
+      </div>
+    </div>
+  );
+};
+
+export default DisplayErrorMsg;

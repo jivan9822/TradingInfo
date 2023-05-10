@@ -6,5 +6,5 @@ const { protect } = require('../Middleware/Protect');
 router.post('/registration', fireBaseUpload, user.userRegistration);
 router.post('/login', user.userAuth);
 router.get('/isLogin', protect, user.isLogin);
-// router.get('/logOut', protect, user.userLogOut);
+router.get('/logOut', protect, user.userLogOut);
 module.exports = router;

@@ -4,6 +4,7 @@ import CompanyDetails from './CompanyDetails';
 import { useSelector } from 'react-redux';
 
 const DisplayOneStockDetails = ({ stock }) => {
+  console.log(stock);
   const [showCompanyDetails, setCompanyDetails] = useState(false);
   const [text, setText] = useState('Company Details');
   const company = useSelector((state) => state.stock.stockDetail);

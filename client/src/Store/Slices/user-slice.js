@@ -20,6 +20,9 @@ const userSlice = createSlice({
     setErrorMsg(state, action) {
       state.ErrMsg = action.payload;
     },
+    setUserLogOut(state, action) {
+      state.loginUser = null;
+    },
   },
 });
 

@@ -2,8 +2,8 @@ import { useState } from 'react';
 import { useSelector } from 'react-redux';
 import classes from './DisplayStocks.module.css';
 
-const DisplayStocks = () => {
-  const tradingData = useSelector((state) => state.stock.stocks);
+const DisplayStocks = (props) => {
+  const tradingData = useSelector((state) => state.stock.filterStock);
   const [numResults, setNumResults] = useState(100); // set initial number of results to display
 
   const handleShowMoreResults = () => {
@@ -28,7 +28,12 @@ const DisplayStocks = () => {
           {tradingData.slice(0, numResults).map((trade, ind) => (
             <tr key={ind}>
               <td>{new Date(trade.t).toLocaleString()}</td>
-              <td>{trade.T}</td>
+              <td
+                onClick={() => props.sendId(trade.T)}
+                style={{ color: 'blue', cursor: 'pointer' }}
+              >
+                {trade.T}
+              </td>
               <td>{trade.vw}</td>
               <td>{trade.o}</td>
               <td>{trade.h}</td>

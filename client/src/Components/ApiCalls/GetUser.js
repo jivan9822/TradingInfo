@@ -8,7 +8,6 @@ export const GetUser = () => {
       .get(`${PROXY}/user/isLogin`, { withCredentials: true })
       .then((user) => {
         const userData = user.data.data.user;
-        console.log(userData);
         dispatch(userAction.setLoginUser(userData));
       })
       .catch((err) => {

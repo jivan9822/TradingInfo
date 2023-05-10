@@ -8,22 +8,26 @@ const CompanyDetails = ({ company }) => {
         <tbody>
           <tr>
             <th>Ticker</th>
-            <td>{company.ticker}</td>
+            <td>{company.ticker || '-NA-'}</td>
           </tr>
           <tr>
             <th>Market Cap</th>
-            <td>{company.market_cap}</td>
+            <td>{company.market_cap || '-NA-'}</td>
           </tr>
           <tr>
             <th>Phone Number</th>
-            <td>{company.phone_number}</td>
+            <td>{company.phone_number || '-NA-'}</td>
           </tr>
           <tr>
             <th>Address</th>
-            <td>
-              {company.address?.address1}, {company.address?.city},{' '}
-              {company.address?.state} {company.address?.postal_code}
-            </td>
+            {company.address ? (
+              <td>
+                {company.address.address1}, {company.address.city},{' '}
+                {company.address.state} {company.address.postal_code}
+              </td>
+            ) : (
+              <td>-NA-</td>
+            )}
           </tr>
         </tbody>
       </table>

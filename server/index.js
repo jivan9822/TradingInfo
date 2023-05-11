@@ -1,5 +1,5 @@
-require('./Src/Middleware/Mongoose');
 require('dotenv').config({ path: 'config.env' });
+require('./Src/Middleware/Mongoose');
 const express = require('express');
 const cors = require('cors');
 const cookieParser = require('cookie-parser');
@@ -29,4 +29,6 @@ app.use(globalErrorHandler);
 
 const port = process.env.PORT || 5000;
 
-app.listen(port);
+app.listen(port, () => {
+  console.log(`Server running on port ${port}`);
+});

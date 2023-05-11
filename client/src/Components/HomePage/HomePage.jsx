@@ -122,7 +122,12 @@ const HomePage = () => {
         />
       )}
       {showSearch && searchItem && (
-        <DisplayOneStockDetails stock={searchItem} />
+        <DisplayOneStockDetails
+          stock={searchItem}
+          setShowStocks={setShowStocks}
+          setShowSearch={setShowSearch}
+          setSearchByName={setSearchByName}
+        />
       )}
     </div>
   );

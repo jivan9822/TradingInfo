@@ -3,26 +3,45 @@ import classes from './DisplayOneStockDetails.module.css';
 import CompanyDetails from './CompanyDetails';
 import { useSelector } from 'react-redux';
 
-const DisplayOneStockDetails = ({ stock }) => {
-  console.log(stock);
+const DisplayOneStockDetails = ({
+  stock,
+  setShowStocks,
+  setSearchByName,
+  setShowSearch,
+}) => {
+  const stockByName = useSelector((state) => state.stock.stocksByName);
   const [showCompanyDetails, setCompanyDetails] = useState(false);
-  const [text, setText] = useState('Company Details');
+  const [text, setText] = useState('Show Company Details');
   const company = useSelector((state) => state.stock.stockDetail);
   const onClickHandler = (e) => {
     e.preventDefault();
-    if (text === 'Company Details') {
+    if (text === 'Show Company Details') {
       setCompanyDetails(true);
       setText('Hide Details');
     } else {
       setCompanyDetails(false);
-      setText('Company Details');
+      setText('Show Company Details');
     }
+  };
+  const backClickHandler = (e) => {
+    e.preventDefault();
+    if (stockByName) {
+      setSearchByName(true);
+    } else {
+      setShowStocks(true);
+    }
+    setShowSearch(false);
   };
   return (
     <div className={classes.stockDetails}>
-      <button className={classes.button} onClick={onClickHandler}>
-        {text}
-      </button>
+      <div>
+        <button className={classes.button} onClick={onClickHandler}>
+          {text}
+        </button>
+        <button onClick={backClickHandler} className={classes.button}>
+          Back
+        </button>
+      </div>
       {showCompanyDetails && company && <CompanyDetails company={company} />}
       <h2>Stock Details</h2>
       <table>

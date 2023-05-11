@@ -29,7 +29,19 @@ const stockSlice = createSlice({
       );
     },
     setStocksByName(state, action) {
-      state.stocksByName = action.payload;
+      const currentDate = new Date();
+      const year = currentDate.getFullYear();
+      const month = (currentDate.getMonth() + 1).toString().padStart(2, '0');
+      const formattedDate = `${year}-${month}`;
+
+      const filteredStocks = action.payload?.filter((stock) => {
+        const lastUpdatedUtc = stock.last_updated_utc;
+        if (!lastUpdatedUtc) {
+          return false;
+        }
+        return lastUpdatedUtc.substring(0, 7) === formattedDate;
+      });
+      state.stocksByName = filteredStocks;
     },
   },
 });

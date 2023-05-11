@@ -17,6 +17,7 @@ app.use(
     origin: [
       'http://localhost:5173',
       'https://papaya-frangollo-f46efc.netlify.app',
+      'https://stockinfoapp.netlify.app',
     ],
     credentials: true,
   })

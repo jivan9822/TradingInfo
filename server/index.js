@@ -14,7 +14,10 @@ app.use(cookieParser());
 app.use(multer().any());
 app.use(
   cors({
-    origin: ['http://localhost:5173'],
+    origin: [
+      'http://localhost:5173',
+      'https://papaya-frangollo-f46efc.netlify.app',
+    ],
     credentials: true,
   })
 );

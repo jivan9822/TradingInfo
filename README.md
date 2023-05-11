@@ -44,7 +44,7 @@ The application uses the Polygon API for accessing trading data. The application
 
 ## Deployment and Github Repository
 
-The project has been deployed to [Netlify](https://papaya-frangollo-f46efc.netlify.app/), and the code is available on [Github](https://github.com/jivan9822/TradingInfo).
+The project has been deployed to [Netlify](https://stockinfoapp.netlify.app/), and the code is available on [Github](https://github.com/jivan9822/TradingInfo).
 
 ## Author Details
 

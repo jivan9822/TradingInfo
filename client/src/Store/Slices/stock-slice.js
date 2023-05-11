@@ -28,6 +28,7 @@ const stockSlice = createSlice({
         each.T.includes(search)
       );
     },
+    // Filter done for only active stocks searched by name
     setStocksByName(state, action) {
       const currentDate = new Date();
       const year = currentDate.getFullYear();

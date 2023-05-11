@@ -9,8 +9,8 @@ function App() {
   const user = useSelector((state) => state.user.loginUser);
   const dispatch = useDispatch();
   useEffect(() => {
-    dispatch(GetUser());
-    dispatch(GetAllStocks());
+    dispatch(GetUser()); // Set login user fetching user data
+    dispatch(GetAllStocks()); // Getting all stocks data when server starts
   }, []);
   return <div>{!user ? <LoginReg /> : <HomePage />}</div>;
 }

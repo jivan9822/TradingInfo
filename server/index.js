@@ -1,7 +1,7 @@
-const express = require('express');
-require('dotenv').config({ path: 'config.env' });
-const cors = require('cors');
 require('./Src/Middleware/Mongoose');
+require('dotenv').config({ path: 'config.env' });
+const express = require('express');
+const cors = require('cors');
 const cookieParser = require('cookie-parser');
 const { globalErrorHandler } = require('./Src/Utils/globalErrorHandler');
 const AppError = require('./Src/Utils/AppError');
@@ -14,11 +14,7 @@ app.use(cookieParser());
 app.use(multer().any());
 app.use(
   cors({
-    origin: [
-      'http://localhost:5173',
-      'https://papaya-frangollo-f46efc.netlify.app',
-      'https://stockinfoapp.netlify.app',
-    ],
+    origin: ['http://localhost:5173', 'https://stockinfoapp.netlify.app'],
     credentials: true,
   })
 );

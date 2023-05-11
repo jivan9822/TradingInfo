@@ -16,7 +16,6 @@ export const GetAllStocks = () => {
       .get(
         `https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/${formattedDate}?adjusted=true&apiKey=${API}`
       )
-      // https://api.polygon.io/v2/aggs/grouped/locale/us/market/stocks/2023-01-09?adjusted=true&apiKey=0w1W91Hnq5nPepj4d5nz7CzDJDbIp7ZT
       .then((res) => {
         const data = res.data.results;
         dispatch(stockAction.setStocks(data));

@@ -15,46 +15,51 @@ import DisplayStockListByName from './DisplayStocks/DisplayStockListByName';
 
 const HomePage = () => {
   const dispatch = useDispatch();
-  const [searchTerm, setSearchTerm] = useState('');
-  const [showStocks, setShowStocks] = useState(true);
-  const [showSearch, setShowSearch] = useState(false);
-  const [searchByName, setSearchByName] = useState(false);
-  const searchItem = useSelector((state) => state.stock.oneStock);
-  const ErrMsg = useSelector((state) => state.user.ErrMsg);
-  const user = useSelector((state) => state.user.loginUser);
-  const stockByName = useSelector((state) => state.stock.stocksByName);
+  const [searchTerm, setSearchTerm] = useState(''); // Input from search field
+  const [showStocks, setShowStocks] = useState(true); // To display all stocks data
+  const [showSearch, setShowSearch] = useState(false); // Display searched stock in details
+  const [searchByName, setSearchByName] = useState(false); // To show search by name Input field
+  const searchItem = useSelector((state) => state.stock.oneStock); // getting single data from store
+  const ErrMsg = useSelector((state) => state.user.ErrMsg); // getting Error message if any from store
+  const user = useSelector((state) => state.user.loginUser); // getting User data from store
+  const stockByName = useSelector((state) => state.stock.stocksByName); // stock data searched by name
   let search = '';
   const handleSearch = (event) => {
     search += event.target.value.toUpperCase();
-    setSearchTerm(search);
-    dispatch(stockAction.filterStock(search));
+    setSearchTerm(search); // set in state search input filed
+    dispatch(stockAction.filterStock(search)); // filtering stocks by search
   };
+  // function to receive symbol of particular stock
   const getRequest = (data) => {
-    setShowStocks(false);
-    setShowSearch(true);
-    dispatch(getOneStockDetails(data));
-    dispatch(stockAction.getOneStockDetails(data));
-    setSearchByName(false);
+    setShowStocks(false); // stop showing stock list
+    setShowSearch(true); // display one stock details
+    dispatch(getOneStockDetails(data)); // Fetching one stock data
+    dispatch(stockAction.getOneStockDetails(data)); // finding one stocks from all stocks
+    setSearchByName(false); // hide search by name field
   };
-
+  // onClick get allStocks
   const handleGetAllStockData = () => {
     dispatch(GetAllStocks());
     setShowStocks(true);
     setShowSearch(false);
   };
+  // onEnter event
   const onEnterPress = (e) => {
     if (e.key === 'Enter') {
       handleSearchStockData();
     }
   };
+  // search by name input data
   const getSearchName = (name) => {
     dispatch(SearchByName(name));
   };
+  // To close Error backdrop
   const onCloseHandler = (e, type) => {
     e.preventDefault();
     dispatch(userAction.setErrorMsg(null));
     handleGetAllStockData();
   };
+  // get single stock from search field
   const handleSearchStockData = () => {
     setShowStocks(false);
     setShowSearch(true);
@@ -62,7 +67,7 @@ const HomePage = () => {
     dispatch(stockAction.getOneStockDetails(searchTerm));
     setSearchTerm('');
   };
-
+  // logout handler
   const onLogOutHandler = (e) => {
     e.preventDefault();
     dispatch(logOut());

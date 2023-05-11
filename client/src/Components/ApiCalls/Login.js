@@ -14,7 +14,6 @@ export const Login = (email, password) => {
       )
       .then((res) => {
         const user = res.data.data.user;
-        console.log(user);
         dispatch(userAction.setLoginUser(user));
       })
       .catch((err) => {

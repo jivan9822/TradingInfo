@@ -11,7 +11,6 @@ export const userRegistration = (formData) => {
         },
       })
       .then((res) => {
-        console.log(res);
         const successMsg = res.data.message;
         dispatch(userAction.setSuccessMsg(successMsg));
       })

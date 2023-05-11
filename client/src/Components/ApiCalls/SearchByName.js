@@ -10,7 +10,6 @@ export const SearchByName = (name) => {
       )
       .then((res) => {
         const data = res.data.results;
-        console.log(data);
         dispatch(stockAction.setStocksByName(data));
       })
       .catch((err) => {

@@ -6,7 +6,7 @@ This is a fullstack trading application built using ReactJS and NodeJS. The appl
 
 To install the application, please follow the below steps:
 
-1. Clone the repository from Github using `git clone <repository-url>`.
+1. Clone the repository from Github using `git clone <https://github.com/jivan9822/TradingInfo>`.
 2. Navigate to the client folder and install the dependencies using `npm install`.
 3. Start the client using `npm run dev`.
 4. Navigate to the server folder and install the dependencies using `npm install`.
@@ -14,7 +14,7 @@ To install the application, please follow the below steps:
 
 ## User Registration
 
-The user can register by providing their name, email, password, and photo. The application verifies the user's email before allowing them to log in.
+The user can register by providing their name, email, password, and photo (as a base64 string). The application verifies the user's email before allowing them to log in.
 
 ## User Login
 
@@ -28,7 +28,7 @@ When the user clicks on a product ID, they can view the details of the stock, in
 
 ## Stack Used
 
-The frontend of the application is built using ReactJS and the advanced React Redux Toolkit for state management. The backend is built using NodeJS, and the database is stored in MongoDB. The application uses JWT tokens for handling protected routes, and multer to handle images, redis to get faster user experience.
+The frontend of the application is built using ReactJS and the advanced React Redux Toolkit for state management. The backend is built using NodeJS, and the database is stored in MongoDB. The application uses JWT tokens for handling protected routes, and multer to handle images.
 
 ## Unit Testing
 
@@ -42,8 +42,15 @@ Code optimization has been done to ensure the application runs efficiently.
 
 The application uses the Polygon API for accessing trading data. The application handles large amounts of data by filtering and searching.
 
-## Github Uploading and Documentation
+## Deployment and Github Repository
 
-The project has been uploaded to Github, along with detailed documentation on how to install and run the application.
+The project has been deployed to [Netlify](https://papaya-frangollo-f46efc.netlify.app/), and the code is available on [Github](https://github.com/jivan9822/TradingInfo).
+
+## Author Details
+
+Name: Jivan Toshniwal  
+Mobile No: 9822442282  
+email: j.toshniwal@yahoo.co.in  
+Address: Mumbai.
 
 Thank you for using this application!

@@ -1,4 +1,4 @@
-// const { setUserAuth } = require('../Middleware/RedisHandler-block');
+const { setUserAuth } = require('../Middleware/RedisHandler');
 const User = require('../Models/UserModel');
 const AppError = require('../Utils/AppError');
 const { CatchAsync } = require('../Utils/CatchAsync');
@@ -29,7 +29,7 @@ exports.userAuth = CatchAsync(async (req, res, next) => {
   req.token = token;
   user.password = undefined;
   req.user = user;
-  // setUserAuth(user._id, user); // catch
+  setUserAuth(user._id, user); // catch
 
   res.cookie('jwt', token, {
     expires: new Date(
@@ -60,7 +60,7 @@ exports.isLogin = CatchAsync(async (req, res, next) => {
 });
 
 exports.userLogOut = CatchAsync(async (req, res, next) => {
-  // setUserAuth(req.user._id, null); // catch
+  setUserAuth(req.user._id, null); // catch
   res.cookie('jwt', null);
   res.status(200).json({
     status: true,
